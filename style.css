@@ -1,0 +1,142 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+/* Body e alinhamento */
+body {
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+/* Conteúdo */
+.content {
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-out;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out;
+}
+
+button {
+  background: #fff;
+  color: #7b2ff7;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  animation: fadeIn 1.5s ease-out;
+}
+
+button:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+
+/* Animações */
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-50px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(50px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Fundo animado com partículas */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.background span {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: rgba(255,255,255,0.2);
+  animation: move 20s linear infinite;
+  border-radius: 50%;
+}
+
+@keyframes move {
+  0% { transform: translateY(0) rotate(0deg);}
+  100% { transform: translateY(-1000px) rotate(360deg);}
+}
+
+/* Forma roxa flutuante */
+.highlight-shape {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: #A43BCB;
+  border-radius: 50%;
+  top: 10%;
+  right: -100px;
+  opacity: 0.6;
+  z-index: 1;
+  filter: blur(100px);
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0) rotate(0deg);}
+  100% { transform: translateY(50px) translateX(-50px) rotate(45deg);}
+}
+
+/* Responsividade */
+@media(max-width: 500px){
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  button {
+    font-size: 0.95rem;
+    padding: 10px 25px;
+  }
+  .highlight-shape {
+    width: 150px;
+    height: 150px;
+  }
+}
